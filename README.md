@@ -162,11 +162,11 @@ http://127.0.0.1:8000/api/mahasiswa/insert_mahasiswa
 Buat function pada apicontroller untuk melakukan action put. Berikut kodenya:
 ```
 // update data
-	public function update_data_mahasiswa(Request $request, $id){
-		// mengecek data yang akan di update berdasarkan id ada atau tidak
-		$check_mahasiswa = mMahasiswa::firstWhere('nim', $id);
+	public function update_data_mahasiswa(Request $request, $nim){
+		// mengecek data yang akan di update berdasarkan nim ada atau tidak
+		$check_mahasiswa = mMahasiswa::firstWhere('nim', $nim);
 		if($check_mahasiswa){
-			$data_mahasiswa = mMahasiswa::find($id);
+			$data_mahasiswa = mMahasiswa::find($nim);
 			$data_mahasiswa->nama = $request->namaMahasiwa;
 			$data_mahasiswa->prodi = $request->prodiMahasiwa;
 			$data_mahasiswa->save();
@@ -199,10 +199,10 @@ Buat function pada apicontroller untuk melakukan action put. Berikut kodenya:
 ```
 // delete data
 	public function delete_data_mahasiswa($id){
-		// mengecek data yang akan dihapus berdasarkan id ada atau tidak
-		$check_mahasiswa = mMahasiswa::firstWhere('nim', $id);
+		// mengecek data yang akan dihapus berdasarkan nim ada atau tidak
+		$check_mahasiswa = mMahasiswa::firstWhere('nim', $nim);
 		if($check_mahasiswa){
-			mMahasiswa::destroy($id);
+			mMahasiswa::destroy($nim);
 			return response([
 				'status' => 'OK',
 	    		'message' => 'Data Berhasil di Hapus',
