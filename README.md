@@ -198,7 +198,7 @@ http://127.0.0.1:8000/api/mahasiswa/update/8
 Buat function pada apicontroller untuk melakukan action put. Berikut kodenya:
 ```
 // delete data
-	public function delete_data_mahasiswa($id){
+	public function delete_data_mahasiswa($nim){
 		// mengecek data yang akan dihapus berdasarkan nim ada atau tidak
 		$check_mahasiswa = mMahasiswa::firstWhere('nim', $nim);
 		if($check_mahasiswa){
