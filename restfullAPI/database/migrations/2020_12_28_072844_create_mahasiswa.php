@@ -17,7 +17,6 @@ class CreateMahasiswa extends Migration
             $table->bigIncrements('nim');
             $table->string('nama');
             $table->string('prodi');
-            $table->timestamps();
         });
     }
 
